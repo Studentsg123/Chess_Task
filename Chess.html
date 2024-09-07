@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chessboard</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .chessboard {
+      display: grid;
+      grid-template-columns: repeat(8, 50px);
+      grid-template-rows: repeat(8, 50px);
+    }
+
+    .chessboard div {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .white {
+      background-color: #eee;
+    }
+
+    .black {
+      background-color: #444;
+    }
+  </style>
+</head>
+<body>
+
+<div class="chessboard" id="chessboard"></div>
+
+<script>
+  function createChessboard() {
+    const chessboard = document.getElementById('chessboard');
+
+    for (let row = 0; row < 8; row++) {
+      for (let col = 0; col < 8; col++) {
+        const square = document.createElement('div');
+        square.classList.add((row + col) % 2 === 0 ? 'white' : 'black');
+        chessboard.appendChild(square);
+      }
+    }
+  }
+
+  createChessboard();
+</script>
+
+</body>
+</html>
